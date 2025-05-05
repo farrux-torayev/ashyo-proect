@@ -8,10 +8,13 @@ import { Navigation } from "swiper/modules";
 import { getProducts } from "@/service/getProducts";
 import ProductItem from "./ProductItem";
 import ProductItemSkeleton from "./ProductItemSkeleton";
-import { ProductItemType, ProductPageType  } from "@/types/ProductsType";
-
-const Products:FC<ProductPageType> = ({ title, API, extraStyle: extraClass }) => {
-  const {products, isLoading  } = getProducts(API);
+import { ProductItemType, ProductPageType } from "@/types/ProductsType";
+const Products: FC<ProductPageType> = ({
+  title,
+  API,
+  extraStyle: extraClass,
+}) => {
+  const { products, isLoading } = getProducts(API);
   return (
     <div className={`products pb-[100px pb-[100px] ${extraClass}`}>
       <div className="containers !mb-[50px] ">
@@ -29,13 +32,26 @@ const Products:FC<ProductPageType> = ({ title, API, extraStyle: extraClass }) =>
         modules={[Navigation]}
         className=""
       >
-         {isLoading ? <ProductItemSkeleton/> : products.map((item:ProductItemType) => (
-  <SwiperSlide key={item.id}> <ProductItem item={item}/> </SwiperSlide>
-))}
-</Swiper>
-<div className='px-5 sm:hidden  grid  grid-cols-4 gap-[15px] flex-wrap'>
-{isLoading ? <ProductItemSkeleton/> : products.map((item:ProductItemType) => <ProductItem key={item.id} item={item}/>)}
-</div>
+        {isLoading ? (
+          <ProductItemSkeleton />
+        ) : (
+          products.map((item: ProductItemType) => (
+            <SwiperSlide key={item.id}>
+              {" "}
+              <ProductItem item={item} />{" "}
+            </SwiperSlide>
+          ))
+        )}
+      </Swiper>
+      <div className="px-5 sm:hidden  grid  grid-cols-2 gap-[15px] flex-wrap">
+        {isLoading ? (
+          <ProductItemSkeleton />
+        ) : (
+          products.map((item: ProductItemType) => (
+            <ProductItem key={item.id} item={item} />
+          ))
+        )}
+      </div>
     </div>
   );
 };

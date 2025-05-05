@@ -64,6 +64,7 @@ export const HeaderTopStyle = styled.div`
     .header-top {
       flex-direction: column;
       align-items: flex-start;
+      display: none;
     }
 
     nav {
@@ -81,43 +82,6 @@ export const HeaderTopStyle = styled.div`
     nav a,
     nav ~ div a {
       font-size: 16px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .header-top {
-      flex-direction: column;
-    }
-
-    nav {
-      width: 100%;
-      justify-content: flex-start;
-    }
-
-    nav ~ div {
-      width: 100%;
-      justify-content: flex-start;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .flex {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 50px;
-    }
-
-    .text {
-      font-size: 28px; 
-    }
-
-    .w-full {
-      width: 100%;
-    }
-
-    .gap-6 {
-      gap: 20px; 
     }
   }
 `;

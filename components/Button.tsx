@@ -1,6 +1,5 @@
 import { ButtonType } from "@/types/ButtonType";
 import React, { FC } from "react";
-
 const Button: FC<ButtonType> = ({
   icon,
   iconPosition,
@@ -9,7 +8,6 @@ const Button: FC<ButtonType> = ({
   type,
   onClick,
 }) => {
-  // Generic Type
   return (
     <button
       onClick={onClick}

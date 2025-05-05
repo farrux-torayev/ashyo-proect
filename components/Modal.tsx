@@ -2,7 +2,6 @@
 import { CloseIcon } from "@/assets/icons";
 import { ModalType } from "@/types/ModalType";
 import React from "react";
-
 const Modal: React.FC<ModalType> = ({
   children,
   modalClass,
@@ -33,5 +32,4 @@ const Modal: React.FC<ModalType> = ({
     </div>
   );
 };
-
 export default Modal;

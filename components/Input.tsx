@@ -17,5 +17,4 @@ const Input: FC<InputType> = ({
     />
   );
 };
-
 export default Input;

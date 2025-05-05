@@ -8,8 +8,6 @@ import { Context } from "@/context/Context";
 import { instance } from "@/hooks/instance";
 import debounce from "@/hooks/debounce";
 import { HeaderSearchType } from "@/types/HeaderCenterType";
-import Link from "next/link";
-
 const HeaderForm = () => {
   const t = useTranslations("HeaderCenterContent");
   const { setShowCategory, showCategory } = useContext(Context);
@@ -17,7 +15,6 @@ const HeaderForm = () => {
   const [searchResult, setSearchResult] = useState<HeaderSearchType[]>([]);
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
   function handleSearch(e: ChangeEvent<HTMLInputElement>) {
     setSearchValue(e.target.value);
     setIsLoading(true);
@@ -42,7 +39,6 @@ const HeaderForm = () => {
         });
     }
   }, [searchWatchingValue]);
-
   return (
     <div className="flex items-center gap-[10px] z-5">
       <Button
@@ -58,8 +54,7 @@ const HeaderForm = () => {
           />
         }
       />
-
-      <div className="w-[518px] relative ">
+      <div className="sm:w-[518px] w-[300px] relative  ">
         <Input
           value={searchValue}
           onChange={handleSearch}
@@ -99,5 +94,4 @@ const HeaderForm = () => {
     </div>
   );
 };
-
 export default HeaderForm;

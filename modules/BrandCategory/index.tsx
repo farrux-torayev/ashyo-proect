@@ -7,7 +7,6 @@ import React from "react";
 import "./style.css";
 const BrandCategory = () => {
   const { data: categories } = getCategories();
-
   return (
     <div className="containers brand-category-wrapper b-[80px] ">
       {categories.map((item: HeaderCategoriesType) => (

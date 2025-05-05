@@ -8,21 +8,16 @@ import { BrandsType } from "@/types/BrandsType";
 import { Skeleton } from "@heroui/skeleton";
 import Button from "../Button";
 import Slider from "@mui/material/Slider";
-
-
-
 const ProductFilter: FC<ProductFilterType> = ({
   setMaxPrice,
   setMinPrice,
   setBrandId,
 }) => {
   const queryClient = useQueryClient();
-  const {brands, isLoading } = getBrandsE2();
-  const {data:variation, isLoading: variationLoading } = getVariation();
-  
+  const { brands, isLoading } = getBrandsE2();
+  const { data: variation, isLoading: variationLoading } = getVariation();
   const [min, setMinValue] = useState<number>(10);
   const [max, setMaxValue] = useState<number>(200000000);
-
   const accumulatorData = [
     {
       id: 1,
@@ -49,14 +44,12 @@ const ProductFilter: FC<ProductFilterType> = ({
       value: "5000 mAh",
     },
   ];
-
   function handlePriceChange(_event: Event, newValue: number | number[]) {
     if (Array.isArray(newValue)) {
       setMinValue(newValue[0]);
       setMaxValue(newValue[1]);
     }
   }
-
   function handleFilterPriceBtnClick() {
     setMinPrice(min);
     setMaxPrice(max);
@@ -93,8 +86,7 @@ const ProductFilter: FC<ProductFilterType> = ({
           />
         </div>
       </div>
-      
-    <Slider
+      <Slider
         value={[min, max]}
         onChange={handlePriceChange}
         aria-label="Slider"
@@ -116,7 +108,7 @@ const ProductFilter: FC<ProductFilterType> = ({
           {isLoading ? (
             <Skeleton className="h-5 !bg-white w-full mb-[5px] rounded-lg" />
           ) : (
-            brands.map((item:BrandsType) => (
+            brands.map((item: BrandsType) => (
               <button
                 onClick={() => setBrandId(item.id)}
                 key={item.id}
@@ -172,5 +164,4 @@ const ProductFilter: FC<ProductFilterType> = ({
     </div>
   );
 };
-
 export default ProductFilter;
